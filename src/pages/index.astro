@@ -1,0 +1,237 @@
+---
+import Counter from '../components/Counter.tsx';
+import FeatureCard from '../components/FeatureCard.astro';
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    icon: '⚡',
+    title: 'Статика по умолчанию',
+    description:
+      'Astro отдаёт HTML без лишнего JavaScript. Интерактивность подключается только там, где она нужна.',
+  },
+  {
+    icon: '🎨',
+    title: 'Tailwind CSS 4',
+    description:
+      'Утилиты, дизайн-токены и автоматическая сортировка классов — стили живут рядом с разметкой.',
+  },
+  {
+    icon: '⚛️',
+    title: 'React-острова',
+    description: 'Привычные React-компоненты монтируются точечно, не превращая весь сайт в SPA.',
+  },
+  {
+    icon: '🔒',
+    title: 'Строгий TypeScript',
+    description: 'Конфигурация strict, типизированные props и проверка типов через astro check.',
+  },
+  {
+    icon: '📱',
+    title: 'Адаптивность',
+    description:
+      'Mobile-first вёрстка на Tailwind, семантическая разметка и доступные элементы управления.',
+  },
+  {
+    icon: '🧹',
+    title: 'Чистый код',
+    description:
+      'Правила проекта, единый формат через Prettier и небольшие переиспользуемые компоненты.',
+  },
+];
+
+const stack = ['Astro 7', 'Tailwind CSS 4', 'React 19', 'TypeScript'];
+
+const year = new Date().getFullYear();
+---
+
+<Layout
+  title="Astro + Tailwind CSS + React — стартовый проект"
+  description="Минимальный, но готовый к развитию стартовый проект на Astro с Tailwind CSS и React-островами."
+>
+  <header class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
+    <a href="/" class="flex items-center gap-3 font-semibold tracking-tight">
+      <span
+        class="grid size-9 place-items-center rounded-xl bg-indigo-600 text-sm font-bold text-white"
+        aria-hidden="true"
+      >
+        A
+      </span>
+      <span>Astro Starter</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 sm:flex dark:text-slate-400">
+      <a class="transition hover:text-indigo-600 dark:hover:text-indigo-400" href="#features">
+        Возможности
+      </a>
+      <a class="transition hover:text-indigo-600 dark:hover:text-indigo-400" href="#react">
+        React
+      </a>
+      <a class="transition hover:text-indigo-600 dark:hover:text-indigo-400" href="#start">
+        Старт
+      </a>
+    </nav>
+  </header>
+
+  <main class="flex-1">
+    <section class="relative overflow-hidden">
+      <div
+        class="pointer-events-none absolute -top-32 -right-24 size-96 rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/10"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute top-40 -left-24 size-80 rounded-full bg-sky-400/20 blur-3xl dark:bg-sky-500/10"
+        aria-hidden="true"
+      ></div>
+
+      <div class="relative mx-auto grid max-w-6xl gap-12 px-6 pt-16 pb-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pt-24">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-300">
+            <span class="size-1.5 rounded-full bg-indigo-500" aria-hidden="true"></span>
+            Astro + Tailwind + React
+          </span>
+
+          <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+            Сайт, который летает на
+            <span class="bg-linear-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent dark:from-indigo-400 dark:to-sky-400">
+              Astro
+            </span>
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600 dark:text-slate-400">
+            Готовая основа для быстрого сайта: статическая генерация, Tailwind CSS 4 и React там,
+            где действительно нужна интерактивность.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#start"
+              class="rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500"
+            >
+              Начать работу
+            </a>
+            <a
+              href="#features"
+              class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold transition hover:bg-white dark:border-slate-700 dark:hover:bg-slate-900"
+            >
+              Что внутри
+            </a>
+          </div>
+
+          <ul class="mt-10 flex flex-wrap gap-2" aria-label="Технологии проекта">
+            {stack.map((item) => (
+              <li class="rounded-lg border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-medium text-slate-600 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-400">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900 shadow-xl">
+          <div class="flex items-center gap-2 border-b border-slate-800 px-4 py-3">
+            <span class="size-3 rounded-full bg-red-400" aria-hidden="true"></span>
+            <span class="size-3 rounded-full bg-amber-400" aria-hidden="true"></span>
+            <span class="size-3 rounded-full bg-emerald-400" aria-hidden="true"></span>
+            <span class="ml-2 text-xs text-slate-500">terminal</span>
+          </div>
+          <pre class="overflow-x-auto p-5 font-mono text-sm leading-7"><code><span class="text-slate-500">$</span> npm install
+<span class="text-slate-500">$</span> npm run dev
+<span class="text-emerald-400">➜</span> <span class="text-slate-300">http://localhost:4321</span>
+<span class="text-slate-500">$</span> npm run build</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="features"
+      class="scroll-mt-24 border-t border-slate-200 py-20 dark:border-slate-800"
+    >
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+            Всё необходимое — из коробки
+          </h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400">
+            Базовые зависимости установлены, структура папок готова, а правила проекта описаны в
+            <code class="rounded bg-slate-200 px-1.5 py-0.5 font-mono text-sm dark:bg-slate-800">
+              AGENTS.md
+            </code>
+            .
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="react" class="scroll-mt-24 border-t border-slate-200 py-20 dark:border-slate-800">
+      <div class="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
+        <div>
+          <span class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+            Островная архитектура
+          </span>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+            React — только по требованию
+          </h2>
+          <p class="mt-4 leading-7 text-slate-600 dark:text-slate-400">
+            Компонент ниже — обычный React-компонент. Директива
+            <code class="rounded bg-slate-200 px-1.5 py-0.5 font-mono text-sm dark:bg-slate-800">
+              client:visible
+            </code>
+            загрузит его JavaScript только когда блок появится на экране. Остальная страница
+            остаётся статическим HTML.
+          </p>
+        </div>
+
+        <Counter client:visible />
+      </div>
+    </section>
+
+    <section id="start" class="scroll-mt-24 border-t border-slate-200 py-20 dark:border-slate-800">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="rounded-3xl bg-slate-900 px-6 py-10 text-slate-300 sm:px-10 dark:border dark:border-slate-800">
+          <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Быстрый старт</h2>
+          <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-400">
+            Установите зависимости и запустите dev-сервер. Подробности и список команд — в README.
+          </p>
+
+          <div class="mt-8 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+              <p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">
+                1. Установка
+              </p>
+              <code class="mt-2 block font-mono text-sm text-indigo-300">npm install</code>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+              <p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">
+                2. Разработка
+              </p>
+              <code class="mt-2 block font-mono text-sm text-indigo-300">npm run dev</code>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+              <p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">
+                3. Проверка
+              </p>
+              <code class="mt-2 block font-mono text-sm text-indigo-300">npm run verify</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 dark:border-slate-800">
+    <div class="mx-auto flex max-w-6xl flex-col gap-3 px-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between dark:text-slate-400">
+      <p>© {year} Astro Starter. Собрано на Astro и Tailwind CSS.</p>
+      <p>
+        <a class="transition hover:text-indigo-600 dark:hover:text-indigo-400" href="/">
+          tailwind_astro
+        </a>
+      </p>
+    </div>
+  </footer>
+</Layout>

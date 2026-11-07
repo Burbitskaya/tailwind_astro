@@ -2,3 +2,7 @@ dist
 .astro
 node_modules
 package-lock.json
+.chrome-profile
+.chrome-profile-*/
+.preview*.png
+

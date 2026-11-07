@@ -26,6 +26,11 @@ Thumbs.db
 .idea/
 .vscode/
 
+# local preview artifacts
+.chrome-profile/
+.chrome-profile-*/
+.preview*.png
+
 # agent files (local only)
 AGENTS.md
 .opencode/

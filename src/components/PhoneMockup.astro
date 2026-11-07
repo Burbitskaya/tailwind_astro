@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import phoneMockup from '../assets/phone-mockup.png';
+import mobilePhone from '../assets/mobile_phone.png';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['relative flex justify-center', className]}>
+  <!-- Мобильная версия: во всю ширину экрана (375x585 при ширине 375px) -->
+  <Image
+    src={mobilePhone}
+    alt="Приложение Доверка на экране смартфона"
+    class="block h-auto w-full select-none object-cover sm:hidden"
+    loading="eager"
+  />
+
+  <!-- Планшетная и десктопная версия мокапа -->
+  <Image
+    src={phoneMockup}
+    alt="Приложение Доверка на экране смартфона"
+    class="hidden h-auto w-full select-none drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] sm:block"
+    loading="eager"
+  />
+</div>

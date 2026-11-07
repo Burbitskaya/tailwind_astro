@@ -1,0 +1,44 @@
+<svg width="375" height="2267" viewBox="0 0 375 2267" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6004_25152)">
+<rect width="375" height="2267" fill="url(#paint0_radial_6004_25152)"/>
+<g filter="url(#filter0_f_6004_25152)">
+<path d="M879 1300.92L873.662 2955H244.491H-536L-530.662 1300.92L-536 1022.38L15.9087 1077.9H166.429H307.876L879 996V1300.92Z" fill="url(#paint1_linear_6004_25152)"/>
+</g>
+<g opacity="0.8" filter="url(#filter1_f_6004_25152)" style="mix-blend-mode:darken">
+<path d="M1032 1354.75V1601H268.333H-679V1354.75V867.394L-15.5907 1014.76L167.106 1045.61L338.789 1014.76L1032 837V1354.75Z" fill="#280500"/>
+</g>
+<g filter="url(#filter2_f_6004_25152)">
+<rect x="-1679" y="-717" width="3732" height="870" fill="#FCFCFC"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_6004_25152" x="-736" y="796" width="1815" height="2359" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_6004_25152"/>
+</filter>
+<filter id="filter1_f_6004_25152" x="-879" y="637" width="2111" height="1164" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_6004_25152"/>
+</filter>
+<filter id="filter2_f_6004_25152" x="-1839" y="-877" width="4052" height="1190" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="80" result="effect1_foregroundBlur_6004_25152"/>
+</filter>
+<radialGradient id="paint0_radial_6004_25152" cx="0" cy="0" r="1" gradientTransform="matrix(-0.545968 2267 -693.336 -2.18898 188.811 0.000214478)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF5D15" stop-opacity="0.7"/>
+<stop offset="0.318372" stop-color="#FF4E00"/>
+<stop offset="0.480838" stop-color="#FF0000"/>
+</radialGradient>
+<linearGradient id="paint1_linear_6004_25152" x1="171.5" y1="996" x2="172.586" y2="2524.21" gradientUnits="userSpaceOnUse">
+<stop offset="0.177622" stop-color="#1E0400"/>
+<stop offset="0.364204"/>
+<stop offset="0.657288"/>
+</linearGradient>
+<clipPath id="clip0_6004_25152">
+<rect width="375" height="2267" fill="white"/>
+</clipPath>
+</defs>
+</svg>

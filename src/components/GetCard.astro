@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import card from '../assets/card.png';
+import maskCard from '../assets/Mask_card.png';
+import googlePay from '../assets/google-pay.svg';
+import visaPay from '../assets/visa-pay.svg';
+import applePay from '../assets/apple-pay.svg';
+---
+
+<section
+  id="get-card"
+  class="relative mx-auto w-full max-w-[1753px] overflow-hidden rounded-[15px] border border-white/10 bg-white/[0.05] px-5 py-8 backdrop-blur-[25px] sm:px-8 sm:py-10 md:px-10 lg:h-[409px] lg:w-full lg:px-[70px] lg:py-[25px]"
+>
+  <!-- 1. Голубое неоновое свечение снизу у панели (из Figma: Ellipse 439, 441, 442) -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -bottom-[160px] left-1/2 h-[380px] w-[140%] -translate-x-1/2 rounded-[100%] bg-[#006FFF]/35 blur-[125px]"></div>
+    <div class="absolute -bottom-[100px] left-1/2 h-[220px] w-[95%] -translate-x-1/2 rounded-[100%] bg-[#006FFF] mix-blend-screen blur-[60px]"></div>
+    <div class="absolute -bottom-[30px] left-1/2 h-[70px] w-[85%] -translate-x-1/2 rounded-[100%] bg-[#58A1FF] mix-blend-screen blur-[15px]"></div>
+  </div>
+
+  <!-- 2. Контент панели: на мобилке (<640px) вертикально, от sm: горизонтально -->
+  <div class="relative z-10 flex h-full flex-col items-center justify-between gap-8 text-center sm:flex-row sm:items-center sm:gap-4 md:gap-6 sm:text-left lg:gap-0 lg:min-h-0">
+    <!-- Первая колонка: Заголовок, описание и логотипы -->
+    <div class="flex w-full max-w-[573px] flex-col items-center sm:mr-[15px] sm:w-auto sm:items-start sm:shrink-0 lg:max-w-[573px]">
+      <h2 class="text-[28px] font-bold uppercase leading-none tracking-tight text-white sm:text-[34px] md:text-[38px] lg:text-[50px]">
+        Получи карту
+      </h2>
+      <p class="mt-3 text-[15px] leading-[1.4] text-white/70 sm:mt-4 sm:text-[16px] md:text-[18px] lg:mt-5 lg:text-[22px]">
+        Мгновенный выпуск, любая валюта, использование по всему миру, абсолютная свобода.
+      </p>
+
+      <!-- Способы оплаты -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-[9.11px] sm:mt-7 sm:justify-start lg:mt-[68px]">
+        <Image
+          src={googlePay}
+          alt="Google Pay"
+          width={googlePay.width}
+          height={googlePay.height}
+          class="h-[36px] w-auto select-none sm:h-[40px] lg:h-[50px]"
+        />
+        <img
+          src={visaPay.src}
+          alt="Visa"
+          width={84}
+          height={50}
+          class="h-[36px] w-auto select-none sm:h-[40px] lg:h-[50px]"
+        />
+        <Image
+          src={applePay}
+          alt="Apple Pay"
+          width={applePay.width}
+          height={applePay.height}
+          class="h-[36px] w-auto select-none sm:h-[40px] lg:h-[50px]"
+        />
+      </div>
+    </div>
+
+    <!-- Вторая колонка: Банковская карта Visa (пропорционально уменьшается, строго по вертикальному центру) -->
+    <div class="relative my-auto flex w-full max-w-[340px] items-center justify-center self-center sm:my-auto sm:w-[clamp(280px,26vw,577px)] sm:max-w-none sm:shrink-0 lg:w-[577px]">
+      <div class="relative w-full">
+        <Image
+          src={card}
+          alt="Банковская карта Доверка"
+          width={577}
+          height={359}
+          class="h-auto w-full select-none drop-shadow-[0_40px_60px_rgba(0,0,0,0.45)]"
+          loading="lazy"
+        />
+
+        <!-- Наложение маски карты Mask_card -->
+        <Image
+          src={maskCard}
+          alt=""
+          width={577}
+          height={359}
+          class="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+
+    <!-- Третья (оставшаяся) колонка: кнопка по центру -->
+    <div class="flex w-full items-center justify-center sm:flex-1 sm:h-full">
+      <a
+        href="#order"
+        class="inline-flex h-[52px] w-full items-center justify-center rounded-[5px] border border-white/5 bg-white/10 px-6 text-[16px] font-medium text-white shadow-[0_20px_30px_rgba(0,0,0,0.1)] transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-[54px] sm:w-auto sm:px-7 md:h-[58px] lg:h-[62px] lg:w-[201px] lg:px-8 lg:text-[18px]"
+      >
+        Заказать карту
+      </a>
+    </div>
+  </div>
+</section>

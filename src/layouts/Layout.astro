@@ -2,30 +2,20 @@
 import '../styles/global.css';
 
 interface Props {
-  title?: string;
-  description?: string;
+  title: string;
 }
 
-const {
-  title = 'Astro + Tailwind CSS + React',
-  description = 'Стартовый проект на Astro с Tailwind CSS и React-островами.',
-} = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="ru" class="h-full">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
     <title>{title}</title>
   </head>
-  <body class="flex min-h-dvh flex-col">
+  <body class="bg-page-bg font-sans text-white antialiased">
     <slot />
   </body>
 </html>

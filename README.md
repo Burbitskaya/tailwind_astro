@@ -1,16 +1,23 @@
-# Astro + Tailwind CSS + React
+# Доверка — лендинг переводов
 
-Стартовый проект для сайта на **Astro** с **Tailwind CSS 4** и **React 19**.
+Одностраничный лендинг на **Astro 7**, **Tailwind CSS 4** и готовой React-интеграцией.
 
-- Статическая генерация и минимум JavaScript по умолчанию.
-- Tailwind CSS 4 через официальный Vite-плагин (без `tailwind.config.*`).
-- React-компоненты подключаются как острова (`client:*`), когда нужна интерактивность.
-- Строгий TypeScript, Prettier и автоматическая сортировка Tailwind-классов.
+Макет: фрейм `6004:24947` из Figma, десктопная версия с резиновым масштабированием
+до планшетных ширин.
+
+## Стек
+
+- Astro 7 — статическая генерация;
+- Tailwind CSS 4 — утилиты и дизайн-токены;
+- React 19 + `@astrojs/react` — подключены для будущих интерактивных островов
+  (текущая страница полностью статическая);
+- TypeScript strict;
+- ESLint 10, Prettier, `astro check`.
 
 ## Требования
 
-- **Node.js** `>= 22.23.4` (рекомендуется актуальный LTS).
-- **npm** `>= 9.6.5`.
+- Node.js `>= 22.23.4` (рекомендуется актуальный LTS);
+- npm `>= 9.6.5`.
 
 ## Установка и запуск
 
@@ -23,103 +30,107 @@ Dev-сервер: <http://localhost:4321>
 
 ## Команды
 
-| Команда                | Что делает                                          |
-| :--------------------- | :-------------------------------------------------- |
-| `npm run dev`          | Запускает dev-сервер с горячей перезагрузкой        |
-| `npm run build`        | Собирает production-версию в `dist/`                |
-| `npm run preview`      | Локально предпросматривает собранный сайт           |
-| `npm run check`        | Проверяет типы и `.astro`-файлы через `astro check` |
-| `npm run format`       | Форматирует проект Prettier                         |
-| `npm run format:check` | Проверяет форматирование без изменений              |
-| `npm run verify`       | Полная проверка: формат + типы + production-сборка  |
-| `npm run astro -- ...` | Любая команда Astro CLI, например `astro add`       |
+| Команда                | Что делает                                    |
+| :--------------------- | :-------------------------------------------- |
+| `npm run dev`          | Dev-сервер с горячей перезагрузкой            |
+| `npm run build`        | Production-сборка в `dist/`                   |
+| `npm run preview`      | Локальный предпросмотр собранного сайта       |
+| `npm run check`        | Проверка типов и `.astro` через `astro check` |
+| `npm run lint`         | Проверка кода ESLint                          |
+| `npm run lint:fix`     | Автоисправление ошибок ESLint                 |
+| `npm run format`       | Форматирование Prettier                       |
+| `npm run format:check` | Проверка форматирования                       |
+| `npm run verify`       | Формат + линтер + типы + сборка               |
+| `npm run astro -- ...` | Любая команда Astro CLI, например `astro add` |
 
-Перед завершением задачи запускайте:
+Перед завершением задачи:
 
 ```bash
 npm run verify
 ```
 
-## Структура проекта
+## Структура
 
 ```text
 /
-├── public/                  # статические файлы (иконки, изображения)
+├── public/                     # favicon и статические файлы
 ├── src/
-│   ├── components/          # Astro- и React-компоненты
-│   │   ├── Counter.tsx      # пример React-острова
-│   │   └── FeatureCard.astro
+│   ├── assets/                 # ассеты, экспортированные из Figma
+│   │   ├── card.png            # банковская карта
+│   │   ├── mockup.png          # телефон + рука
+│   │   ├── phone-screen.png    # UI экрана приложения
+│   │   ├── hero-gradient.svg   # градиент фона
+│   │   ├── bg-shadow-*.svg     # слои теней фона
+│   │   ├── icon-*.svg          # иконки преимуществ
+│   │   ├── store-*.svg         # иконки магазинов приложений
+│   │   ├── google-pay.svg
+│   │   ├── apple-pay.svg
+│   │   └── visa-box.png        # логотип Visa вместе с плашкой
+│   │   └── fonts/              # Euclid Circular A (self-hosted woff)
+│   ├── components/
+│   │   ├── Background.astro    # фон: градиент и тени
+│   │   ├── Hero.astro          # заголовок, телефон, преимущества, кнопки
+│   │   ├── PhoneMockup.astro   # телефон + экран
+│   │   ├── FeatureItem.astro   # преимущество с иконкой
+│   │   ├── StoreButton.astro   # кнопка магазина приложений
+│   │   └── CardSection.astro   # блок «Получи карту»
 │   ├── layouts/
-│   │   └── Layout.astro     # базовый HTML-каркас и метаданные
+│   │   └── Layout.astro        # HTML-каркас, метаданные, шрифт
 │   ├── pages/
-│   │   └── index.astro      # маршрут "/"
+│   │   └── index.astro         # лендинг
 │   └── styles/
-│       └── global.css       # Tailwind и глобальные стили
+│       └── global.css          # импорт Tailwind и шрифта, тема
 ├── astro.config.mjs
+├── eslint.config.mjs
 ├── prettier.config.mjs
 └── tsconfig.json
 ```
 
-Файлы в `src/pages/` становятся маршрутами: `src/pages/about.astro` → `/about`.
-Динамические маршруты — `src/pages/blog/[slug].astro`.
+## Как собран макет
+
+- **Фон hero** — точный SVG-градиент из Figma (`hero-gradient.svg`) и слои теней
+  (`bg-shadow-large.svg`, `bg-shadow-small.svg`).
+- **Телефон** — два слоя: `mockup.png` (рука и корпус) и `phone-screen.png`
+  (интерфейс приложения). Позиция экрана задана процентами относительно корпуса,
+  поэтому композиция масштабируется вместе с блоком.
+- **Карта** — `card.png` с прозрачностью; тень — через Tailwind `drop-shadow`.
+- **Свечение карточного блока** — радиальные градиенты и `blur` в разметке.
+- **Иконки и логотипы** — SVG/PNG из Figma, без ручной перерисовки. Visa скачана
+  сразу с плашкой (`visa-box.png`), как Google Pay и Apple Pay.
+- **Шрифт** — Euclid Circular A, файлы `.woff` лежат в `src/assets/fonts/` и
+  подключаются через `@font-face`; из интернета ничего не грузится.
+- **Вёрстка** — pixel-perfect артборд 1920×2106 на чистых Tailwind-утилитах.
+  Координаты и размеры из Figma умножаются на `var(--px)` (где `--px: 1px`); мобильной
+  версии пока нет.
 
 ## Tailwind CSS 4
 
-Tailwind подключён двумя файлами:
+Tailwind подключён через `@tailwindcss/vite` в `astro.config.mjs` и импортируется
+в `src/styles/global.css`:
 
-1. `astro.config.mjs` — плагин Vite:
+```css
+@import 'tailwindcss';
 
-   ```js
-   import tailwindcss from '@tailwindcss/vite';
-
-   export default defineConfig({
-     vite: { plugins: [tailwindcss()] },
-   });
-   ```
-
-2. `src/styles/global.css` — импорт Tailwind и дизайн-токены:
-
-   ```css
-   @import 'tailwindcss';
-
-   @theme {
-     --font-sans: ui-sans-serif, system-ui, sans-serif;
-   }
-   ```
-
-Отдельный `tailwind.config.js` не нужен: тема настраивается через `@theme`,
-а пути к контенту Tailwind 4 определяет автоматически.
-
-### Соглашения по стилям
-
-- Стилизуйте компоненты утилитами прямо в разметке.
-- Повторяющиеся наборы классов выносите в Astro- или React-компонент, а не в `@apply`.
-- `@apply` используйте только для глобальных базовых стилей.
-- Порядок классов поддерживает `prettier-plugin-tailwindcss` — запускайте `npm run format`.
-- Mobile-first: базовые классы для мобильных, затем `sm:`, `md:`, `lg:`.
-- Тёмная тема работает через `prefers-color-scheme` и классы `dark:`.
-
-## React-острова
-
-React-компонент — обычный `.tsx`-файл. Чтобы он стал интерактивным, добавьте директиву
-гидратации:
-
-```astro
----
-import Counter from '../components/Counter.tsx';
----
-
-<Counter client:visible />
+@theme {
+  --font-sans: 'Euclid Circular A', ui-sans-serif, system-ui, sans-serif;
+}
 ```
 
-| Директива        | Когда загружается JavaScript                |
-| :--------------- | :------------------------------------------ |
-| `client:load`    | Сразу после загрузки страницы               |
-| `client:idle`    | Когда браузер свободен                      |
-| `client:visible` | Когда компонент появляется в зоне видимости |
-| `client:only`    | Только на клиенте, без серверного HTML      |
+`tailwind.config.js` не нужен: тема настраивается через `@theme`, контент
+определяется автоматически. Порядок классов сортирует
+`prettier-plugin-tailwindcss` при `npm run format`.
 
-Не добавляйте `client:*` без необходимости: статический HTML быстрее и проще.
+## Изображения
+
+Все растровые ассеты проходят через `astro:assets` (`<Image />`): Astro генерирует
+WebP и `srcset` под нужные размеры. SVG импортируются как URL и отдаются как есть.
+
+## Линтеры и форматирование
+
+- ESLint 10 + `typescript-eslint`, `eslint-plugin-astro`, `@eslint-react`,
+  `eslint-plugin-react-hooks`, `eslint-plugin-jsx-a11y-x`;
+- Prettier + `prettier-plugin-astro` + `prettier-plugin-tailwindcss`;
+- `eslint-config-prettier` отключает конфликтующие правила.
 
 ## Полезные ссылки
 

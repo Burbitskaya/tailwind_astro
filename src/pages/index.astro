@@ -107,33 +107,23 @@ const stores = [
       Внешний контейнер:
       Отступ сверху плавно уменьшается от 491px (1920px) до 185px (375px)
     -->
-    <div
-      class="mx-auto flex w-full max-w-[1920px] flex-col items-center px-4 pt-[clamp(185px,110px+19.8vw,491px)] sm:px-6 lg:px-6 min-[1920px]:px-0"
-    >
+    <div class="mx-auto flex w-full max-w-[1920px] flex-col items-center px-4 pt-[clamp(185px,110px+19.8vw,491px)] sm:px-6 lg:px-6 min-[1920px]:px-0">
       <!--
         Основной контейнер hero:
         Заканчивается кнопками загрузки, без искусственного пустого зазора снизу
       -->
-      <div
-        class="relative flex w-full flex-col items-center sm:justify-start lg:max-w-[1920px]"
-      >
+      <div class="relative flex w-full flex-col items-center sm:justify-start lg:max-w-[1920px]">
         <!--
           Заголовок Hero:
           - 375px: ширина 335, gap 15, h1: 35/112%, p: 16/140%
           - 1920px: ширина 831, высота 205, gap 20, h1: 64/120%, p: 22/140%
         -->
-        <section
-          class="relative z-20 flex w-full max-w-[335px] flex-col items-center gap-[15px] text-center sm:max-w-[640px] lg:max-w-[831px] lg:gap-[20px]"
-        >
-          <h1
-            class="text-[35px] font-bold uppercase leading-[1.12] tracking-tight text-white sm:text-[46px] md:text-[52px] lg:text-[64px] lg:leading-[1.2]"
-          >
+        <section class="relative z-20 flex w-full max-w-[335px] flex-col items-center gap-[20px] text-center sm:max-w-[640px] lg:max-w-[831px] lg:gap-[20px]">
+          <h1 class="text-[35px] font-bold uppercase leading-[1.12] tracking-tight text-white sm:text-[46px] md:text-[52px] lg:text-[64px] lg:leading-[1.2]">
             Все переводы
             <span class="block">в одном приложении</span>
           </h1>
-          <p
-            class="text-[16px] font-normal leading-[1.4] text-white/80 sm:text-[18px] lg:text-[22px]"
-          >
+          <p class="text-[16px] font-normal leading-[1.4] text-white/80 sm:text-[18px] lg:text-[22px]">
             Все статусы, история и поддержка — прямо в приложении
           </p>
         </section>
@@ -163,17 +153,13 @@ const stores = [
           Соотношение сторон мокапа строго сохраняется, без деформации.
           Рука масштабируется плавно и мягко, не уменьшаясь слишком сильно.
         -->
-        <div
-          class="relative hidden w-full justify-center sm:flex sm:-mt-4 md:-mt-6 xl:-mt-[31px]"
-        >
+        <div class="relative hidden w-full justify-center sm:flex sm:-mt-4 md:-mt-6 xl:-mt-[31px]">
           <!-- Мокап по центру: рука крупная, масштабируется плавно -->
           <div class="pointer-events-none relative flex w-[clamp(780px,28vw+540px,1080px)] max-w-full justify-center">
             <PhoneMockup class="w-full" />
 
             <!-- Буллеты: 4 угла, всегда занимают тот же процент от высоты картинки с рукой -->
-            <div
-              class="pointer-events-auto absolute inset-x-0 top-[20%] z-10 mx-auto flex h-[46%] w-[87.2%] justify-between"
-            >
+            <div class="pointer-events-auto absolute inset-x-0 top-[20%] z-10 mx-auto flex h-[46%] w-[87.2%] justify-between">
               <div class="flex h-full flex-col justify-between">
                 <FeatureItem {...featuresLeft[0]} variant="desktop" />
                 <FeatureItem {...featuresLeft[1]} variant="desktop" />
@@ -188,7 +174,7 @@ const stores = [
 
         <!-- Кнопки загрузки: аккуратно под рукой, без заезда на руку -->
         <section
-          class="relative z-10 -mt-[31.2vw] grid w-full grid-cols-1 gap-2 sm:mt-0 sm:max-w-[680px] sm:grid-cols-2 sm:gap-3.5 min-[1300px]:flex min-[1300px]:max-w-[1170px] min-[1300px]:flex-row min-[1300px]:items-center min-[1300px]:justify-center min-[1300px]:gap-3.5 min-[1300px]:h-[70px]"
+          class="relative z-10 -mt-[31.2vw] grid w-full grid-cols-1 gap-2 sm:mt-0 sm:max-w-[680px] sm:grid-cols-2 sm:gap-3.5 min-[1300px]:flex min-[1300px]:max-w-[1170px] min-[1300px]:flex-row min-[1300px]:items-center min-[1300px]:justify-center min-[1300px]:gap-3.5 min-[1300px]:h-[70px] min-[1600px]:mt-[9px]!"
           aria-label="Скачать приложение"
         >
           {stores.map((store) => (

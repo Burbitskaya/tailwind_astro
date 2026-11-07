@@ -43,12 +43,32 @@
   --color-brand-orange: rgb(255 93 21);
   --color-brand-red: rgb(255 0 0);
   --color-brand-dark: #250804;
+
+  /* Fluid-типографика (375px -> 1920px) */
+  --text-bullet: clamp(16px, 11.2px + 0.75vw, 22px);
+  --text-card-title: clamp(28px, 22.7px + 1.42vw, 50px);
+  --text-card-desc: clamp(15px, 13.3px + 0.45vw, 22px);
+  --text-card-btn: clamp(15px, 14.3px + 0.19vw, 18px);
+
+  /* Fluid-отступы и размеры (375px -> 1920px) */
+  --spacing-hero-pt: clamp(185px, 110px + 19.8vw, 491px);
+  --spacing-card-gap: clamp(100px, 88px + 3.23vw, 150px);
+  --spacing-bullet-mt: clamp(12px, -2.4px + 2.25vw, 30px);
+  --spacing-bullet-icon: clamp(28px, 16.8px + 1.75vw, 42px);
+  --spacing-bullet-icon-h: clamp(30px, 18px + 1.875vw, 45px);
+  --spacing-mockup: clamp(780px, 28vw + 540px, 1080px);
+  --spacing-card-pad: clamp(32px, 22.8px + 2.45vw, 70px);
+  --spacing-card-btn-w: clamp(160px, 150px + 2.65vw, 201px);
+  --spacing-card-btn-h: clamp(52px, 49.6px + 0.65vw, 62px);
+  --spacing-pay-h: clamp(36px, 32.6px + 0.9vw, 50px);
 }
 
 @utility icon-shadow-desktop {
-  filter: drop-shadow(0px 19px 10px rgba(0, 0, 0, 0.2)) drop-shadow(0px 10px 14px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0px 19px 10px rgba(0, 0, 0, 0.2))
+    drop-shadow(0px 10px 14px rgba(0, 0, 0, 0.15));
 }
 
 @utility icon-shadow-mobile {
-  filter: drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.2)) drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.2))
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.2));
 }

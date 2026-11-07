@@ -15,13 +15,15 @@ const { class: className = '' } = Astro.props;
     src={mobilePhone}
     alt="Приложение Доверка на экране смартфона"
     class="block h-auto w-full select-none sm:hidden"
-    loading="eager"
+    loading="lazy"
+    decoding="async"
   />
 
   <Image
     src={phoneMockup}
     alt="Приложение Доверка на экране смартфона"
-    class="hidden h-auto w-full aspect-[2280/1560] select-none object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] sm:block"
+    class="hidden h-auto w-full aspect-[3/2] select-none object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] sm:block"
     loading="eager"
+    fetchpriority="high"
   />
 </div>

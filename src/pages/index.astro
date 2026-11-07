@@ -9,60 +9,13 @@ import { Image } from 'astro:assets';
 import heroGradient from '../assets/hero-gradient.svg';
 import shadowLight from '../assets/shadow_light.svg';
 import backMobile from '../assets/back.svg';
-import bulletSpeed from '../assets/bullet-speed.svg';
-import bulletTransfers from '../assets/bullet-transfers.svg';
-import bulletBonuses from '../assets/bullet-bonuses.svg';
-import bulletSupport from '../assets/bullet-support.svg';
 
-import btnIconGooglePlay from '../assets/btn-icon-google-play.svg';
-import btnIconAppStore from '../assets/btn-icon-app-store.svg';
-import btnIconAppGallery from '../assets/btn-icon-app-gallery.svg';
-import btnIconRuStore from '../assets/btn-icon-rustore.svg';
-
-const featuresLeft = [
-  {
-    icon: bulletSpeed,
-    lines: ['Без задержек и', 'сюрпризов'],
-  },
-  {
-    icon: bulletTransfers,
-    lines: ['Все переводы в', 'одном месте'],
-  },
-];
-
-const featuresRight = [
-  {
-    icon: bulletBonuses,
-    lines: ['Бонусы и скидки', 'на комиссии'],
-  },
-  {
-    icon: bulletSupport,
-    lines: ['Поддержка', '24/7'],
-  },
-];
-
-const stores = [
-  {
-    icon: btnIconGooglePlay,
-    label: 'Google Play',
-    href: 'https://play.google.com/store/apps',
-  },
-  {
-    icon: btnIconAppStore,
-    label: 'App Store',
-    href: 'https://www.apple.com/app-store/',
-  },
-  {
-    icon: btnIconAppGallery,
-    label: 'AppGallery',
-    href: 'https://appgallery.huawei.com/',
-  },
-  {
-    icon: btnIconRuStore,
-    label: 'RuStore',
-    href: 'https://www.rustore.ru/',
-  },
-];
+import {
+  featuresLeft,
+  featuresRight,
+  featuresMobile,
+  stores,
+} from '../data/landing';
 ---
 
 <Layout title="Доверка — все переводы в одном приложении">
@@ -97,44 +50,64 @@ const stores = [
       />
     </div>
 
-    <div class="mx-auto flex w-full max-w-[1920px] flex-col items-center px-5 pt-[clamp(185px,110px+19.8vw,491px)] sm:px-6 lg:px-6 min-[1920px]:px-0">
+    <div class="mx-auto flex w-full max-w-[1920px] flex-col items-center px-5 pt-hero-pt sm:px-6 lg:px-6 min-[1920px]:px-0">
       <div class="relative flex w-full flex-col items-center sm:justify-start lg:max-w-[1920px]">
         <section class="relative z-20 flex w-full flex-col items-center gap-[20px] text-center sm:max-w-[640px] lg:max-w-[831px] lg:gap-[20px]">
           <h1 class="text-[35px] font-bold uppercase leading-[1.12] tracking-tight text-white sm:text-[46px] md:text-[52px] lg:text-[64px] lg:leading-[1.2]">
             Все переводы
-            <span class="block">в одном приложении</span>
+            <span class="block">в&nbsp;одном приложении</span>
           </h1>
           <p class="text-[16px] font-normal leading-[1.4] text-white/80 sm:text-[18px] lg:text-[22px]">
-            Все статусы, история и поддержка — прямо в приложении
+            Все статусы, история и&nbsp;поддержка&nbsp;— прямо в&nbsp;приложении
           </p>
         </section>
 
         <div class="mt-[30px] flex w-full justify-center sm:hidden">
-          <div class="grid w-full grid-cols-2 gap-x-[7px] gap-y-[8px]">
-            <FeatureItem {...featuresLeft[0]} variant="mobile" />
-            <FeatureItem {...featuresRight[0]} variant="mobile" />
-            <FeatureItem {...featuresLeft[1]} variant="mobile" />
-            <FeatureItem {...featuresRight[1]} variant="mobile" />
-          </div>
+          <ul
+            role="list"
+            aria-label="Преимущества приложения"
+            class="grid w-full grid-cols-2 gap-x-[7px] gap-y-[8px]"
+          >
+            {featuresMobile.map((feature) => (
+              <li>
+                <FeatureItem {...feature} variant="mobile" />
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div class="-mx-5 mt-0 w-[calc(100%+2.5rem)] max-w-none sm:hidden">
+        <div class="-mx-5 mt-0 w-auto sm:hidden">
           <PhoneMockup />
         </div>
 
         <div class="relative hidden w-full justify-center sm:flex sm:-mt-4 md:-mt-6 xl:-mt-[31px]">
-          <div class="pointer-events-none relative flex w-[clamp(780px,28vw+540px,1080px)] max-w-full justify-center">
+          <div class="pointer-events-none relative flex w-mockup max-w-full justify-center">
             <PhoneMockup class="w-full" />
 
-            <div class="pointer-events-auto absolute inset-x-0 top-[18%] z-10 mx-auto flex h-[50%] w-[87.2%] justify-between lg:top-[20%] lg:h-[48%]">
-              <div class="flex h-full flex-col justify-between gap-6 md:gap-8 lg:gap-10">
-                <FeatureItem {...featuresLeft[0]} variant="desktop" />
-                <FeatureItem {...featuresLeft[1]} variant="desktop" />
-              </div>
-              <div class="flex h-full flex-col justify-between gap-6 md:gap-8 lg:gap-10">
-                <FeatureItem {...featuresRight[0]} variant="desktop" />
-                <FeatureItem {...featuresRight[1]} variant="desktop" />
-              </div>
+            <div
+              class="pointer-events-auto absolute inset-x-0 top-[18%] z-10 mx-auto flex h-[50%] w-[87.2%] justify-between lg:top-[20%] lg:h-[48%]"
+              aria-label="Преимущества приложения"
+            >
+              <ul
+                role="list"
+                class="flex h-full flex-col justify-between gap-6 md:gap-8 lg:gap-10"
+              >
+                {featuresLeft.map((feature) => (
+                  <li>
+                    <FeatureItem {...feature} variant="desktop" />
+                  </li>
+                ))}
+              </ul>
+              <ul
+                role="list"
+                class="flex h-full flex-col justify-between gap-6 md:gap-8 lg:gap-10"
+              >
+                {featuresRight.map((feature) => (
+                  <li>
+                    <FeatureItem {...feature} variant="desktop" />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -149,7 +122,7 @@ const stores = [
         </section>
       </div>
 
-      <div class="mt-[100px] sm:mt-[clamp(100px,88px+3.23vw,150px)] flex w-full justify-center">
+      <div class="mt-[100px] sm:mt-card-gap flex w-full justify-center">
         <GetCard />
       </div>
     </div>

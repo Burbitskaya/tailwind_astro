@@ -11,7 +11,7 @@ import blueMobile from '../assets/blue-mobile.png';
 
 <section
   id="get-card"
-  class="@container relative mx-auto w-full overflow-hidden rounded-[15px] border border-white/10 bg-white/[0.05] px-5 py-8 backdrop-blur-[25px] sm:max-w-[1753px] sm:px-8 sm:py-10 md:px-10 lg:aspect-[1753/409] lg:px-0 lg:py-0"
+  class="relative mx-auto w-full overflow-hidden rounded-[15px] border border-white/10 bg-white/[0.05] backdrop-blur-[25px] sm:max-w-[1753px] lg:min-h-[330px] xl:min-h-[370px] 2xl:min-h-[409px] lg:aspect-[1753/409]"
 >
   <div
     class="pointer-events-none absolute inset-0 overflow-hidden"
@@ -31,24 +31,24 @@ import blueMobile from '../assets/blue-mobile.png';
     />
   </div>
 
-  <div class="relative z-10 flex h-full flex-col items-center justify-between gap-8 text-center sm:flex-row sm:items-center sm:gap-4 sm:text-left md:gap-6 lg:justify-start lg:gap-0">
-    <div class="flex w-full max-w-[573px] flex-col items-center sm:min-w-0 sm:flex-1 sm:items-start lg:absolute lg:top-[calc(70/1753*100cqw)] lg:left-[3.993%] lg:w-[calc(573/1753*100cqw)] lg:max-w-none">
-      <h2 class="text-[28px] font-bold uppercase leading-none tracking-tight text-white sm:text-[clamp(24px,4.4vw,38px)] lg:text-[clamp(28px,calc(50/1753*100cqw),50px)] lg:leading-[1.2]">
+  <div class="relative z-10 grid h-full grid-cols-1 items-center gap-6 px-5 py-8 text-center sm:grid-cols-[1fr_clamp(280px,36vw,380px)] sm:gap-x-8 sm:gap-y-4 sm:p-8 sm:text-left md:p-10 lg:grid-cols-[40%_33%_1fr] xl:grid-cols-[38%_35%_1fr] lg:gap-0 lg:px-0 lg:py-4 xl:py-0">
+    <div class="flex flex-col items-center sm:row-span-2 sm:items-start lg:row-span-1 lg:pl-card-pad lg:pr-4">
+      <h2 class="text-card-title whitespace-nowrap font-bold uppercase leading-tight tracking-tight text-white lg:leading-[1.2]">
         Получи карту
       </h2>
-      <p class="mt-3 text-[15px] leading-[1.4] text-white/70 sm:mt-3 sm:text-[clamp(14px,1.9vw,18px)] lg:mt-[calc(20/1753*100cqw)] lg:text-[clamp(14px,calc(22/1753*100cqw),22px)]">
-        Мгновенный выпуск, любая валюта, <br class="hidden lg:inline" />
-        использование по всему миру, абсолютная свобода.
+      <p class="mt-3 text-card-desc leading-[1.4] text-white/70 lg:mt-5">
+        Мгновенный выпуск, любая валюта, <br class="hidden xl:inline" />
+        использование по&nbsp;всему миру, абсолютная свобода.
       </p>
 
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-[9.11px] sm:mt-7 sm:justify-start lg:mt-[calc(77/1753*100cqw)]">
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:justify-start lg:mt-[clamp(24px,2.5vw,48px)] 2xl:mt-[68px]">
         <Image
           src={googlePay}
           alt="Google Pay"
           width={googlePay.width}
           height={googlePay.height}
           loading="lazy"
-          class="h-[36px] w-auto select-none sm:h-[clamp(30px,4.2vw,40px)] lg:h-[calc(50/1753*100cqw)]"
+          class="h-pay-h w-auto select-none"
         />
         <Image
           src={visaPay}
@@ -56,7 +56,7 @@ import blueMobile from '../assets/blue-mobile.png';
           width={84}
           height={50}
           loading="lazy"
-          class="h-[36px] w-auto select-none sm:h-[clamp(30px,4.2vw,40px)] lg:h-[calc(50/1753*100cqw)]"
+          class="h-pay-h w-auto select-none"
         />
         <Image
           src={applePay}
@@ -64,47 +64,39 @@ import blueMobile from '../assets/blue-mobile.png';
           width={applePay.width}
           height={applePay.height}
           loading="lazy"
-          class="h-[36px] w-auto select-none sm:h-[clamp(30px,4.2vw,40px)] lg:h-[calc(50/1753*100cqw)]"
+          class="h-pay-h w-auto select-none"
         />
       </div>
     </div>
 
-    <div class="relative my-auto flex w-full flex-col items-center justify-center self-center sm:my-auto sm:w-[clamp(260px,34vw,400px)] sm:max-w-none sm:shrink-0 lg:absolute lg:top-[calc(25/1753*100cqw)] lg:left-[39.532%] lg:my-0 lg:ml-0 lg:w-[calc(577/1753*100cqw)] lg:max-w-none">
+    <div class="relative mx-auto flex w-full max-w-[340px] flex-col items-center justify-center sm:max-w-none lg:max-w-[577px] lg:justify-self-center">
       <div class="relative w-full">
         <Image
           src={card}
           alt="Банковская карта Доверка"
           width={577}
           height={359}
-          class="h-auto w-full select-none drop-shadow-[0_40px_60px_rgba(0,0,0,0.45)]"
           loading="lazy"
+          decoding="async"
+          class="h-auto w-full select-none"
         />
-
         <Image
           src={maskCard}
           alt=""
           width={577}
           height={359}
           loading="lazy"
+          decoding="async"
           class="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
           aria-hidden="true"
         />
       </div>
-
-      <div class="mt-4 flex w-full justify-center sm:mt-5 lg:hidden">
-        <a
-          href="#order"
-          class="inline-flex h-[52px] w-full items-center justify-center whitespace-nowrap rounded-[5px] border border-white/5 bg-white/10 px-4 text-[15px] font-medium text-white shadow-[0_20px_30px_rgba(0,0,0,0.1)] transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-[54px] sm:w-[80%] sm:text-[14px] md:h-[58px] md:text-[15px]"
-        >
-          Заказать карту
-        </a>
-      </div>
     </div>
 
-    <div class="hidden lg:absolute lg:top-[calc(174/1753*100cqw)] lg:left-[80.548%] lg:flex lg:flex-none lg:items-center lg:justify-center">
+    <div class="flex w-full justify-center sm:col-start-2 sm:row-start-2 lg:col-start-3 lg:row-start-1 lg:h-full lg:items-center">
       <a
         href="#order"
-        class="inline-flex h-[62px] w-[201px] items-center justify-center rounded-[5px] border border-white/5 bg-white/10 px-8 text-[18px] font-medium text-white shadow-[0_20px_30px_rgba(0,0,0,0.1)] transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:h-[max(calc(62/1753*100cqw),44px)] lg:w-[max(calc(201/1753*100cqw),160px)] lg:px-0 lg:text-[clamp(14px,calc(18/1753*100cqw),18px)] lg:whitespace-nowrap"
+        class="inline-flex h-card-btn-h w-full max-w-[340px] items-center justify-center whitespace-nowrap rounded-[5px] border border-white/5 bg-white/10 px-6 text-card-btn font-medium text-white shadow-[0_20px_30px_rgba(0,0,0,0.1)] transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:max-w-none lg:w-card-btn-w"
       >
         Заказать карту
       </a>

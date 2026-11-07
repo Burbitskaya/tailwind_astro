@@ -11,7 +11,7 @@ import blueMobile from '../assets/blue-mobile.png';
 
 <section
   id="get-card"
-  class="@container relative mx-auto w-full max-w-[1753px] overflow-hidden rounded-[15px] border border-white/10 bg-white/[0.05] px-5 py-8 backdrop-blur-[25px] sm:px-8 sm:py-10 md:px-10 lg:aspect-[1753/409] lg:px-0 lg:py-0"
+  class="@container relative mx-auto w-full overflow-hidden rounded-[15px] border border-white/10 bg-white/[0.05] px-5 py-8 backdrop-blur-[25px] sm:max-w-[1753px] sm:px-8 sm:py-10 md:px-10 lg:aspect-[1753/409] lg:px-0 lg:py-0"
 >
   <!-- Фон для get card: blue_long (десктоп/планшет) и blue-mobile (мобилка) -->
   <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -68,11 +68,11 @@ import blueMobile from '../assets/blue-mobile.png';
 
     <!-- Вторая колонка: Карточка Visa
          - На десктопе (lg+): абсолютное положение, размер 577x359 в макете 1753px, масштабируется
-         - На планшетах (sm до lg): уменьшается пропорционально (clamp(280px,34vw,460px)),
-           а кнопка «Заказать карту» переносится под карточку и они становятся строго одной ширины
-         - На мобилке (<sm): в колонку, карточка и кнопка одной ширины max-w-[340px]
+         - На планшетах (sm до lg): уменьшается пропорционально (clamp(260px,34vw,400px)),
+           а кнопка «Заказать карту» переносится под карточку и имеет ширину 80% от карты (шрифт 14px, без переноса)
+         - На мобилке (<sm): карточка и кнопка масштабируются вместе с контейнером (295px при 375px)
     -->
-    <div class="relative my-auto flex w-full max-w-[340px] flex-col items-center justify-center self-center sm:my-auto sm:w-[clamp(200px,30vw,360px)] sm:max-w-none sm:shrink-0 lg:absolute lg:top-[calc(25/1753*100cqw)] lg:left-[39.532%] lg:my-0 lg:ml-0 lg:w-[calc(577/1753*100cqw)] lg:max-w-none">
+    <div class="relative my-auto flex w-full flex-col items-center justify-center self-center sm:my-auto sm:w-[clamp(260px,34vw,400px)] sm:max-w-none sm:shrink-0 lg:absolute lg:top-[calc(25/1753*100cqw)] lg:left-[39.532%] lg:my-0 lg:ml-0 lg:w-[calc(577/1753*100cqw)] lg:max-w-none">
       <div class="relative w-full">
         <Image
           src={card}
@@ -94,13 +94,11 @@ import blueMobile from '../assets/blue-mobile.png';
         />
       </div>
 
-      <!-- Кнопка «Заказать карту» для планшета и мобилки:
-           Переносится строго под карточку и имеет ТОЧНО ТАКУЮ ЖЕ ширину (w-full)
-      -->
+      <!-- Кнопка «Заказать карту»: на мобилке во всю ширину карты (52px), на планшете 80% от карты, не переносится в 2 строки -->
       <div class="mt-4 flex w-full justify-center sm:mt-5 lg:hidden">
         <a
           href="#order"
-          class="inline-flex h-[52px] w-full items-center justify-center rounded-[5px] border border-white/5 bg-white/10 px-6 text-[16px] font-medium text-white shadow-[0_20px_30px_rgba(0,0,0,0.1)] transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-[54px] md:h-[58px]"
+          class="inline-flex h-[52px] w-full items-center justify-center whitespace-nowrap rounded-[5px] border border-white/5 bg-white/10 px-4 text-[15px] font-medium text-white shadow-[0_20px_30px_rgba(0,0,0,0.1)] transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-[54px] sm:w-[80%] sm:text-[14px] md:h-[58px] md:text-[15px]"
         >
           Заказать карту
         </a>

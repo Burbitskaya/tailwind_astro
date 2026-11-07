@@ -44,9 +44,17 @@
 }
 
 @utility icon-shadow-desktop {
-  filter: drop-shadow(0px 19px 19px rgba(0, 0, 0, 0.7)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0px 19px 19px rgba(0, 0, 0, 0.15)) drop-shadow(0px 10px 14px rgba(0, 0, 0, 0.15));
 }
 
 @utility icon-shadow-mobile {
-  filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6)) drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.08)) drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.icon-shadow-desktop {
+  filter: drop-shadow(0px 19px 19px rgba(0, 0, 0, 0.15)) drop-shadow(0px 10px 14px rgba(0, 0, 0, 0.15));
+}
+
+.icon-shadow-mobile {
+  filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.08)) drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
 }

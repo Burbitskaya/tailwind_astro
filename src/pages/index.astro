@@ -65,7 +65,7 @@ const stores = [
 ---
 
 <Layout title="Доверка — все переводы в одном приложении">
-  <main class="relative isolate min-h-screen overflow-hidden bg-[#050505] pb-16 text-white sm:pb-24 lg:pb-[84px]">
+  <main class="relative isolate min-h-screen overflow-hidden bg-[#050505] pb-[84px] text-white">
     <!--
       Фон:
       - Мобильная версия (<sm): отдельный фон back.svg (375x2267) из мобильного фрейма Figma
@@ -112,11 +112,10 @@ const stores = [
     >
       <!--
         Основной контейнер hero:
-        На 1920: высота 972px, заканчивается кнопками
-        На меньших экранах: пропорционально уменьшается
+        Заканчивается кнопками загрузки, без искусственного пустого зазора снизу
       -->
       <div
-        class="relative flex w-full flex-col items-center sm:justify-start min-[1920px]:h-[972px] lg:max-w-[1920px]"
+        class="relative flex w-full flex-col items-center sm:justify-start lg:max-w-[1920px]"
       >
         <!--
           Заголовок Hero:
@@ -161,14 +160,14 @@ const stores = [
         <!--
           ПЛАНШЕТНАЯ И ДЕСКТОПНАЯ ВЕРСИЯ (sm: и выше):
           Композиция — смартфон по центру, буллеты по 4 углам поверх него.
-          Высота основного контейнера уменьшается быстро, чтобы кнопки не отставали от руки.
-          Рука остаётся крупной, а буллеты привязаны к её высоте (top: 20%, h: 46%, w: 87.2%).
+          Соотношение сторон мокапа строго сохраняется, без деформации.
+          Рука масштабируется плавно и мягко, не уменьшаясь слишком сильно.
         -->
         <div
-          class="relative hidden w-full justify-center sm:flex h-[clamp(260px,-40px+36.4vw,660px)] sm:-mt-4 md:-mt-6 xl:-mt-[31px]"
+          class="relative hidden w-full justify-center sm:flex sm:-mt-4 md:-mt-6 xl:-mt-[31px]"
         >
-          <!-- Мокап по центру: рука крупная, буллеты привязаны к её высоте -->
-          <div class="pointer-events-none relative flex w-[clamp(780px,460px+32vw,1080px)] max-w-full justify-center">
+          <!-- Мокап по центру: рука крупная, масштабируется плавно -->
+          <div class="pointer-events-none relative flex w-[clamp(780px,28vw+540px,1080px)] max-w-full justify-center">
             <PhoneMockup class="w-full" />
 
             <!-- Буллеты: 4 угла, всегда занимают тот же процент от высоты картинки с рукой -->
@@ -187,7 +186,7 @@ const stores = [
           </div>
         </div>
 
-        <!-- Кнопки загрузки -->
+        <!-- Кнопки загрузки: аккуратно под рукой, без заезда на руку -->
         <section
           class="relative z-10 -mt-[31.2vw] grid w-full grid-cols-1 gap-2 sm:mt-0 sm:max-w-[680px] sm:grid-cols-2 sm:gap-3.5 min-[1300px]:flex min-[1300px]:max-w-[1170px] min-[1300px]:flex-row min-[1300px]:items-center min-[1300px]:justify-center min-[1300px]:gap-3.5 min-[1300px]:h-[70px]"
           aria-label="Скачать приложение"
@@ -198,8 +197,8 @@ const stores = [
         </section>
       </div>
 
-      <!-- Отступ 150px между кнопками и секцией «Получи карту» на десктопе -->
-      <div class="mt-16 flex w-full justify-center sm:mt-20 md:mt-24 lg:mt-[150px]">
+      <!-- Отступ между основным контейнером и карточкой (150px на 1920, уменьшается пропорционально) -->
+      <div class="mt-[clamp(40px,18px+6.875vw,150px)] flex w-full justify-center">
         <GetCard />
       </div>
     </div>

@@ -10,20 +10,20 @@ interface Props {
 const { class: className = '' } = Astro.props;
 ---
 
-<div class:list={['relative flex justify-center', className]}>
+<div class:list={['relative', className]}>
   <!-- Мобильная версия: во всю ширину экрана (375x585 при ширине 375px) -->
   <Image
     src={mobilePhone}
     alt="Приложение Доверка на экране смартфона"
-    class="block h-auto w-full select-none object-cover sm:hidden"
+    class="block h-auto w-full select-none sm:hidden"
     loading="eager"
   />
 
-  <!-- Планшетная и десктопная версия мокапа -->
+  <!-- Планшетная и десктопная версия мокапа: соотношение сторон строго 2280/1560 без деформации -->
   <Image
     src={phoneMockup}
     alt="Приложение Доверка на экране смартфона"
-    class="hidden h-auto w-full select-none drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] sm:block"
+    class="hidden h-auto w-full aspect-[2280/1560] select-none object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] sm:block"
     loading="eager"
   />
 </div>

@@ -33,6 +33,7 @@ Thumbs.db
 
 # agent files (local only)
 AGENTS.md
+CLAUDE.md
 .opencode/
 .claude/
 .agents/

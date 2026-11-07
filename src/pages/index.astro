@@ -4,6 +4,7 @@ import FeatureItem from '../components/FeatureItem.astro';
 import PhoneMockup from '../components/PhoneMockup.astro';
 import StoreButton from '../components/StoreButton.astro';
 import GetCard from '../components/GetCard.astro';
+import { Image } from 'astro:assets';
 
 import heroGradient from '../assets/hero-gradient.svg';
 import shadowLight from '../assets/shadow_light.svg';
@@ -65,59 +66,39 @@ const stores = [
 ---
 
 <Layout title="Доверка — все переводы в одном приложении">
-  <main class="relative isolate min-h-screen overflow-hidden bg-[#050505] pb-[84px] text-white">
-    <!--
-      Фон:
-      - Мобильная версия (<sm): отдельный фон back.svg (375x2267) из мобильного фрейма Figma
-      - Десктоп/планшет (sm+): hero-gradient (радиальный 2106px) + shadow_light (во всю страницу)
-      Оба фона всегда начинаются строго сверху (top-0).
-    -->
-    <!-- Мобильный фон (< sm) -->
+  <main class="relative isolate min-h-screen overflow-hidden bg-page-bg pb-[84px] text-white">
     <div
       class="pointer-events-none absolute inset-0 -z-10 block overflow-hidden sm:hidden"
       aria-hidden="true"
     >
-      <img
-        src={backMobile.src}
+      <Image
+        src={backMobile}
         alt=""
+        loading="eager"
         class="absolute inset-0 h-full w-full select-none object-fill"
       />
     </div>
 
-    <!-- Десктопный и планшетный фон (sm и выше) -->
     <div
       class="pointer-events-none absolute inset-0 -z-10 hidden overflow-hidden sm:block"
       aria-hidden="true"
     >
-      <!-- hero-gradient: радиальный фон 1920x2106, привязан к верхнему краю -->
-      <img
-        src={heroGradient.src}
+      <Image
+        src={heroGradient}
         alt=""
+        loading="eager"
         class="absolute inset-x-0 top-0 h-[2106px] w-full select-none object-fill"
       />
-      <!-- shadow_light: во всю страницу, подстраивается под любой размер страницы -->
-      <img
-        src={shadowLight.src}
+      <Image
+        src={shadowLight}
         alt=""
+        loading="eager"
         class="absolute inset-0 h-full w-full select-none object-fill"
       />
     </div>
 
-    <!--
-      Внешний контейнер:
-      Отступ сверху плавно уменьшается от 491px (1920px) до 185px (375px)
-    -->
     <div class="mx-auto flex w-full max-w-[1920px] flex-col items-center px-5 pt-[clamp(185px,110px+19.8vw,491px)] sm:px-6 lg:px-6 min-[1920px]:px-0">
-      <!--
-        Основной контейнер hero:
-        Заканчивается кнопками загрузки, без искусственного пустого зазора снизу
-      -->
       <div class="relative flex w-full flex-col items-center sm:justify-start lg:max-w-[1920px]">
-        <!--
-          Заголовок Hero:
-          - 375px: ширина 335 (масштабируется при росте экрана), h1: 35/112%, p: 16/140%
-          - 1920px: ширина 831, высота 205, gap 20, h1: 64/120%, p: 22/140%
-        -->
         <section class="relative z-20 flex w-full flex-col items-center gap-[20px] text-center sm:max-w-[640px] lg:max-w-[831px] lg:gap-[20px]">
           <h1 class="text-[35px] font-bold uppercase leading-[1.12] tracking-tight text-white sm:text-[46px] md:text-[52px] lg:text-[64px] lg:leading-[1.2]">
             Все переводы
@@ -128,10 +109,6 @@ const stores = [
           </p>
         </section>
 
-        <!--
-          МОБИЛЬНАЯ ВЕРСИЯ (< 640px):
-          Буллеты: 335px на экране 375px, масштабируются при увеличении экрана
-        -->
         <div class="mt-[30px] flex w-full justify-center sm:hidden">
           <div class="grid w-full grid-cols-2 gap-x-[7px] gap-y-[8px]">
             <FeatureItem {...featuresLeft[0]} variant="mobile" />
@@ -145,18 +122,10 @@ const stores = [
           <PhoneMockup />
         </div>
 
-        <!--
-          ПЛАНШЕТНАЯ И ДЕСКТОПНАЯ ВЕРСИЯ (sm: и выше):
-          Композиция — смартфон по центру, буллеты по 4 углам поверх него.
-          Соотношение сторон мокапа строго сохраняется, без деформации.
-          Рука масштабируется плавно и мягко, не уменьшаясь слишком сильно.
-        -->
         <div class="relative hidden w-full justify-center sm:flex sm:-mt-4 md:-mt-6 xl:-mt-[31px]">
-          <!-- Мокап по центру: рука крупная, масштабируется плавно -->
           <div class="pointer-events-none relative flex w-[clamp(780px,28vw+540px,1080px)] max-w-full justify-center">
             <PhoneMockup class="w-full" />
 
-            <!-- Буллеты: обязательный вертикальный gap, чтобы строки не схлопывались при уменьшении с 1440 -->
             <div class="pointer-events-auto absolute inset-x-0 top-[18%] z-10 mx-auto flex h-[50%] w-[87.2%] justify-between lg:top-[20%] lg:h-[48%]">
               <div class="flex h-full flex-col justify-between gap-6 md:gap-8 lg:gap-10">
                 <FeatureItem {...featuresLeft[0]} variant="desktop" />
@@ -170,7 +139,6 @@ const stores = [
           </div>
         </div>
 
-        <!-- Кнопки загрузки: 335px на мобилке 375px, увеличиваются вместе с экраном -->
         <section
           class="relative z-10 -mt-[15.6vw] grid w-full grid-cols-1 gap-2 sm:mt-0 sm:max-w-[680px] sm:grid-cols-2 sm:gap-3.5 min-[1300px]:flex min-[1300px]:max-w-[1170px] min-[1300px]:flex-row min-[1300px]:items-center min-[1300px]:justify-center min-[1300px]:gap-3.5 min-[1300px]:h-[70px]"
           aria-label="Скачать приложение"
@@ -181,7 +149,6 @@ const stores = [
         </section>
       </div>
 
-      <!-- Отступ между основным контейнером и карточкой (150px на 1920, строго 100px на мобилке) -->
       <div class="mt-[100px] sm:mt-[clamp(100px,88px+3.23vw,150px)] flex w-full justify-center">
         <GetCard />
       </div>

@@ -13,24 +13,25 @@ import blueMobile from '../assets/blue-mobile.png';
   id="get-card"
   class="@container relative mx-auto w-full overflow-hidden rounded-[15px] border border-white/10 bg-white/[0.05] px-5 py-8 backdrop-blur-[25px] sm:max-w-[1753px] sm:px-8 sm:py-10 md:px-10 lg:aspect-[1753/409] lg:px-0 lg:py-0"
 >
-  <!-- Фон для get card: blue_long (десктоп/планшет) и blue-mobile (мобилка) -->
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+  <div
+    class="pointer-events-none absolute inset-0 overflow-hidden"
+    aria-hidden="true"
+  >
     <Image
       src={blueMobile}
       alt=""
+      loading="lazy"
       class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-none select-none sm:hidden"
     />
     <Image
       src={blueLong}
       alt=""
+      loading="lazy"
       class="hidden sm:block absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1753px] select-none"
     />
   </div>
 
-  <!-- Контент панели GetCard. На десктопе (lg+) все размеры — доли ширины макета 1753px (cqw),
-       поэтому блок масштабируется целиком и не выходит за край -->
   <div class="relative z-10 flex h-full flex-col items-center justify-between gap-8 text-center sm:flex-row sm:items-center sm:gap-4 sm:text-left md:gap-6 lg:justify-start lg:gap-0">
-    <!-- Первая колонка: Заголовок, описание и логотипы -->
     <div class="flex w-full max-w-[573px] flex-col items-center sm:min-w-0 sm:flex-1 sm:items-start lg:absolute lg:top-[calc(70/1753*100cqw)] lg:left-[3.993%] lg:w-[calc(573/1753*100cqw)] lg:max-w-none">
       <h2 class="text-[28px] font-bold uppercase leading-none tracking-tight text-white sm:text-[clamp(24px,4.4vw,38px)] lg:text-[clamp(28px,calc(50/1753*100cqw),50px)] lg:leading-[1.2]">
         Получи карту
@@ -40,20 +41,21 @@ import blueMobile from '../assets/blue-mobile.png';
         использование по всему миру, абсолютная свобода.
       </p>
 
-      <!-- Способы оплаты -->
       <div class="mt-6 flex flex-wrap items-center justify-center gap-[9.11px] sm:mt-7 sm:justify-start lg:mt-[calc(77/1753*100cqw)]">
         <Image
           src={googlePay}
           alt="Google Pay"
           width={googlePay.width}
           height={googlePay.height}
+          loading="lazy"
           class="h-[36px] w-auto select-none sm:h-[clamp(30px,4.2vw,40px)] lg:h-[calc(50/1753*100cqw)]"
         />
-        <img
-          src={visaPay.src}
+        <Image
+          src={visaPay}
           alt="Visa"
           width={84}
           height={50}
+          loading="lazy"
           class="h-[36px] w-auto select-none sm:h-[clamp(30px,4.2vw,40px)] lg:h-[calc(50/1753*100cqw)]"
         />
         <Image
@@ -61,17 +63,12 @@ import blueMobile from '../assets/blue-mobile.png';
           alt="Apple Pay"
           width={applePay.width}
           height={applePay.height}
+          loading="lazy"
           class="h-[36px] w-auto select-none sm:h-[clamp(30px,4.2vw,40px)] lg:h-[calc(50/1753*100cqw)]"
         />
       </div>
     </div>
 
-    <!-- Вторая колонка: Карточка Visa
-         - На десктопе (lg+): абсолютное положение, размер 577x359 в макете 1753px, масштабируется
-         - На планшетах (sm до lg): уменьшается пропорционально (clamp(260px,34vw,400px)),
-           а кнопка «Заказать карту» переносится под карточку и имеет ширину 80% от карты (шрифт 14px, без переноса)
-         - На мобилке (<sm): карточка и кнопка масштабируются вместе с контейнером (295px при 375px)
-    -->
     <div class="relative my-auto flex w-full flex-col items-center justify-center self-center sm:my-auto sm:w-[clamp(260px,34vw,400px)] sm:max-w-none sm:shrink-0 lg:absolute lg:top-[calc(25/1753*100cqw)] lg:left-[39.532%] lg:my-0 lg:ml-0 lg:w-[calc(577/1753*100cqw)] lg:max-w-none">
       <div class="relative w-full">
         <Image
@@ -83,18 +80,17 @@ import blueMobile from '../assets/blue-mobile.png';
           loading="lazy"
         />
 
-        <!-- Наложение маски карты Mask_card -->
         <Image
           src={maskCard}
           alt=""
           width={577}
           height={359}
+          loading="lazy"
           class="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
           aria-hidden="true"
         />
       </div>
 
-      <!-- Кнопка «Заказать карту»: на мобилке во всю ширину карты (52px), на планшете 80% от карты, не переносится в 2 строки -->
       <div class="mt-4 flex w-full justify-center sm:mt-5 lg:hidden">
         <a
           href="#order"
@@ -105,7 +101,6 @@ import blueMobile from '../assets/blue-mobile.png';
       </div>
     </div>
 
-    <!-- Третья колонка (десктоп от lg): кнопка справа по центру -->
     <div class="hidden lg:absolute lg:top-[calc(174/1753*100cqw)] lg:left-[80.548%] lg:flex lg:flex-none lg:items-center lg:justify-center">
       <a
         href="#order"

@@ -11,7 +11,6 @@ const { class: className = '' } = Astro.props;
 ---
 
 <div class:list={['relative', className]}>
-  <!-- Мобильная версия: во всю ширину экрана (375x585 при ширине 375px) -->
   <Image
     src={mobilePhone}
     alt="Приложение Доверка на экране смартфона"
@@ -19,7 +18,6 @@ const { class: className = '' } = Astro.props;
     loading="eager"
   />
 
-  <!-- Планшетная и десктопная версия мокапа: соотношение сторон строго 2280/1560 без деформации -->
   <Image
     src={phoneMockup}
     alt="Приложение Доверка на экране смартфона"
